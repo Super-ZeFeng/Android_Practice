@@ -77,7 +77,6 @@ public class WeatherActivity extends Activity implements OnClickListener {
             publishText.setText("同步中....");
             weatherInFoLayout.setVisibility(View.INVISIBLE);
             cityNameText.setVisibility(View.INVISIBLE);
-                                                         Log.d("aaa",7+"");
             queryWeatherCode(countryCode);
         }else {
             //没有县级代号时就直接显示本地天气
@@ -91,9 +90,6 @@ public class WeatherActivity extends Activity implements OnClickListener {
      * 查询天气代号所对应的天气
      */
     private void queryWeatherInFo(String weatherCode){
-
-                    Log.d("aaa",4+""+weatherCode);
-
         String address = "http://www.weather.com.cn/data/cityinfo/"+weatherCode+".html";
                           //http://www.weather.com.cn/data/cityinfo/
         queryFromServer(address,"weatherCode");
@@ -103,8 +99,6 @@ public class WeatherActivity extends Activity implements OnClickListener {
      * 查询县级代号所对应的天气代号
      */
     private void queryWeatherCode(String countryCode) {
-                                                Log.d("aaa",8+"");
-
         String address = "http://www.weather.com.cn/data/list3/city"+countryCode+".xml";
         queryFromServer(address,"countryCode");
     }
@@ -135,12 +129,9 @@ public class WeatherActivity extends Activity implements OnClickListener {
             @Override
             public void onFinish(String response) {
                 if ("countryCode".equals(type)){
-                                                      Log.d("aaa",5+" 0.0.0"+response);
-
                     if (!TextUtils.isEmpty(response)){
                         //从服务器中返回的数据中解析出天气代号
                         String[] array = response.split("\\|");
-                                                       Log.d("aaa",9+"   0.0.0  "+array.length);
                         if (array!=null && array.length==2){
                             String weatherCode = array[1];
                             queryWeatherInFo(weatherCode);
@@ -148,8 +139,6 @@ public class WeatherActivity extends Activity implements OnClickListener {
                     }
                 }else if ("weatherCode".equals(type)){
                     //处理服务器返回的天气信息
-                                                         Log.d("aaa",6+"0.0.0");
-
                     Utility.handleWeatherResponse(WeatherActivity.this,response);
                     runOnUiThread(new Runnable() {
                         @Override
