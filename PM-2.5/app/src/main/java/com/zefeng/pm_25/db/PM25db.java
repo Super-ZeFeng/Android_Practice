@@ -1,6 +1,7 @@
 package com.zefeng.pm_25.db;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.Toast;
@@ -13,8 +14,9 @@ public class PM25db extends SQLiteOpenHelper{
     public static final String CREATE_CityList = "create table Province("
             +"id integer primary key autoincrement,"
             +"provinceName text,"
+            +"city text,"
             +"cnty text,"
-            +"code integer)";
+            +"code text)";
     private Context mContext;
 
     public PM25db(Context context, String name,SQLiteDatabase.CursorFactory factory, int version) {
@@ -32,4 +34,5 @@ public class PM25db extends SQLiteOpenHelper{
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
     }
+
 }
