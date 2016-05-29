@@ -6,17 +6,30 @@
     android:orientation="vertical"
     tools:context="com.zefeng.pm_25.MainActivity">
 
-    <Button
-        android:id="@+id/send"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Send"
-        android:textSize="20sp"/>
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/input"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:hint="请输入城市名,如：中山" />
+
+        <Button
+            android:id="@+id/send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Send"
+            android:textSize="20sp" />
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textSize="20sp"
-      />
+        android:textSize="20sp" />
 </LinearLayout>
